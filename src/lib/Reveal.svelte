@@ -1,26 +1,30 @@
-<script>
+<script lang="ts">
   import { fly } from 'svelte/transition';
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy, tick } from 'svelte';
   export let y = 20;
   export let duration = 400;
 
   let visible = false;
-  let el;
+  let el: HTMLElement;
+  let observer: IntersectionObserver;
 
-  onMount(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          visible = true;
-          observer.unobserve(el); // animate only once
-        }
-      },
-      {
-        threshold: 0.1,
-      }
+  onMount(async () => {
+    await tick();
+    observer = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting) {
+                visible = true;
+                observer.unobserve(el);
+              }
+            },
+            { threshold: 0.1 }
     );
-
     if (el) observer.observe(el);
+  });
+
+  onDestroy(() => {
+    if (observer && el) observer.unobserve(el);
+    if (observer) observer.disconnect();
   });
 </script>
 

@@ -8,7 +8,7 @@ body {
 }
 
 main {
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
     padding: 2rem;
 }
@@ -58,4 +58,382 @@ img {
 
 html {
     scroll-behavior: smooth;
+}
+
+
+/* Hero Banner */
+.hero {
+    position: relative;
+    height: 70vh;
+    background-image: url('header.jpg');
+    background-attachment: fixed;
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    color: #536273;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05); /* minimal overlay to keep text legible */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.hero-text h1, .hero-text p {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Home Section */
+.home-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.home-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.home-image {
+    width: 240px;
+    max-width: 40vw;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    flex: 0 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.home-text {
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    .home-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .home-text {
+        text-align: left;
+        max-width: 60ch;
+    }
+}
+
+
+/* Button */
+.actions {
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #0077cc;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.05s ease;
+}
+.btn:hover {
+    background-color: #0063a8;
+}
+.btn:active {
+    transform: translateY(1px);
+}
+
+
+/* About Section */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Fast Facts Grid */
+.fast-facts {
+    margin-top: 1.5rem;
+}
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.fact {
+    background: #f8fafc;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    padding: 0.75rem 0.9rem;
+}
+.label {
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    color: #536273;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.value {
+    margin-top: 0.25rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+@media (max-width: 640px) {
+    .facts-grid { grid-template-columns: 1fr; }
+}
+
+/* Green Flags styles */
+.green-flags {
+    margin-top: 2rem;
+}
+.flags-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.flag {
+    background: #f6fffa;
+    border: 1px solid rgba(34, 197, 94, 0.18); /* subtle green tint */
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+.flag-title {
+    font-weight: 700;
+    color: #246b36;
+}
+.flag-desc {
+    margin-top: 0.25rem;
+    color: #2c3e50;
+}
+@media (max-width: 640px) {
+    .flags-grid { grid-template-columns: 1fr; }
+}
+
+/* Red Flags styles */
+.red-flags {
+    margin-top: 2rem;
+}
+.red-flags-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.red-flag {
+    background: #fff6f6;
+    border: 1px solid rgba(239, 68, 68, 0.18); /* subtle red tint */
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+.red-flag-title {
+    font-weight: 700;
+    color: #7a1f1f;
+}
+.red-flag-desc {
+    margin-top: 0.25rem;
+    color: #2c3e50;
+}
+@media (max-width: 640px) {
+    .red-flags-grid { grid-template-columns: 1fr; }
+}
+
+/* Hobbies styles */
+.hobbies {
+    margin-top: 2rem;
+}
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.hobby-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+.hobby-title {
+    font-weight: 700;
+    color: #2c3e50;
+}
+.hobby-desc {
+    margin-top: 0.25rem;
+    color: #536273;
+}
+@media (max-width: 640px) {
+    .hobbies-grid { grid-template-columns: 1fr; }
+}
+
+/* Looking For styles */
+.looking-for {
+    margin-top: 2rem;
+}
+.looking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.looking-card {
+    background: #f7fbff;
+    border: 1px solid rgba(0, 119, 204, 0.18); /* subtle blue tint */
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+.looking-title {
+    font-weight: 700;
+    color: #0b3d66;
+}
+.looking-desc {
+    margin-top: 0.25rem;
+    color: #2c3e50;
+}
+.looking-note {
+    margin-top: 0.5rem;
+    color: #536273;
+    font-size: 0.95rem;
+}
+@media (max-width: 640px) {
+    .looking-grid { grid-template-columns: 1fr; }
+}
+
+/* Date Ideas styles */
+.date-ideas {
+    margin-top: 2rem;
+}
+.ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.idea-card {
+    background: #f8fafc;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+.idea-title {
+    font-weight: 700;
+    color: #0b3d66;
+}
+.idea-desc {
+    margin-top: 0.25rem;
+    color: #2c3e50;
+}
+@media (max-width: 640px) {
+    .ideas-grid { grid-template-columns: 1fr; }
+}
+
+/* Pros of Dating styles */
+.pros {
+    margin-top: 2rem;
+}
+.pros-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.pro-card {
+    background: #fff9f2;
+    border: 1px solid rgba(245, 158, 11, 0.2); /* subtle amber tint */
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+.pro-title {
+    font-weight: 700;
+    color: #7a4a0b;
+}
+.pro-desc {
+    margin-top: 0.25rem;
+    color: #2c3e50;
+}
+@media (max-width: 640px) {
+    .pros-grid { grid-template-columns: 1fr; }
+}
+
+/* About styles */
+.deep-dive {
+    margin-top: 2rem;
+}
+.deep-dive-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+}
+.deep-dive-card {
+    background: #f8fafc;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+}
+.deep-dive-title {
+    font-weight: 700;
+    color: #0b3d66;
+}
+.deep-dive-desc {
+    margin-top: 0.25rem;
+    color: #2c3e50;
+}
+@media (max-width: 640px) {
+    .deep-dive-grid { grid-template-columns: 1fr; }
+}
+
+/* Slides in About section */
+.slides {
+    margin-top: 1.25rem;
+}
+.slides-title {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #0b3d66;
+}
+.slides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+.slide-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #f8fafc;
+}
+
+/* Section spacing between main sections */
+.home-section {
+    margin-top: 3rem; /* create vertical space between sections */
+}
+/* Remove top margin for the first section rendered inside <main> (Reveal wraps sections) */
+main > :first-child .home-section {
+    margin-top: 0;
+}
+@media (max-width: 700px) {
+    .home-section { margin-top: 2rem; }
 }
